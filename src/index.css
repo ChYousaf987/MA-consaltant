@@ -3,5 +3,16 @@
 @tailwind utilities;
 
 body{
-    background-color: #f3f3f3;
+    background-color: #;
+}
+
+.text-primary{
+    color: #000544;
+}
+.text-secondary{
+    color: #007999;
+}
+
+.bg-primary{
+    background-color: #007999;
 }
