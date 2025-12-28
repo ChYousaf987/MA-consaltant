@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -214,9 +215,11 @@ const Navbar = () => {
             <a className="text-white hover:text-[#00CED1] transition-all duration-300">
               Contact Us
             </a>
-            <button className="bg-primary hover:scale-110 transition-all duration-300 text-white px-5 py-2 rounded-full">
-              Login
-            </button>
+            <Link to="/signup">
+              <button className="bg-primary hover:scale-110 transition-all duration-300 text-white px-5 py-2 rounded-full">
+                Login
+              </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Icon */}
@@ -249,9 +252,11 @@ const Navbar = () => {
             <a className="block text-white hover:text-[#00CED1] transition-all duration-300">
               Contact Us
             </a>
-            <button className="w-full bg-white text-primary py-2 rounded-full hover:scale-105 transition-all duration-300">
-              Login
-            </button>
+            <Link to="/signup">
+              <button className="bg-primary hover:scale-110 transition-all duration-300 text-white px-5 py-2 rounded-full">
+                Login
+              </button>
+            </Link>
           </div>
         </div>
       </nav>
