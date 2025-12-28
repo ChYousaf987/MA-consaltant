@@ -83,7 +83,7 @@ const ContactUs = () => {
             ></textarea>
             <button
               type="submit"
-              className="mt-2 text-[#007999] bg-white font-semibold py-3 rounded-full hover:text-white shadow-2xl hover:bg-teal-600 transition"
+              className="mt-2 text-white bg-[#007999] font-semibold py-3 rounded-full hover:text-white shadow-2xl hover:scale-105 transition"
             >
               Send Message
             </button>

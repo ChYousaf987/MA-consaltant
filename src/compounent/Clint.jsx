@@ -107,7 +107,7 @@ const Clint = () => {
             Real feedback from clients who trust us for seamless service
           </p>
 
-          <button className="hidden md:block mt-6 bg-primary text-white px-6 py-2 rounded-full text-sm hover:opacity-90 transition">
+          <button className="hidden md:block mt-6 bg-primary text-white px-6 py-2 hover:scale-110  rounded-full text-sm transition-all duration-300">
             View All
           </button>
         </div>

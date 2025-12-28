@@ -3,6 +3,7 @@ import { Eye } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { GrGoogle } from "react-icons/gr";
 
 const Signup = () => {
   return (
@@ -37,7 +38,7 @@ const Signup = () => {
           {/* Social Buttons */}
           <div className="flex gap-4 mb-6">
             <button className="flex-1 px-3 flex items-center justify-center gap-2 border border-white rounded-full py-2 text-sm hover:bg-white hover:text-black transition">
-              <FcGoogle className="w-5 h-5" />
+              <GrGoogle className="w-5 h-5" />
               Sign up with Google
             </button>
             <button className="flex-1 px-3 flex items-center justify-center gap-2 border border-white rounded-full py-2 text-sm hover:bg-white hover:text-black transition">

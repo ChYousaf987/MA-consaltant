@@ -123,29 +123,34 @@ const Help = () => {
           />
         </svg>
 
-        <svg
-          className="absolute left-0 w-full h-[26vh] mt-1 md:h-auto z-30"
-          viewBox="0 0 1722 652"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0 63.7849C687.512 -44.3301 839.03 -6.23871 1722 112.301V490.929C650.719 661.486 529.387 717.644 0 555.45V63.7849Z"
-            fill="#00576E"
-          />
-        </svg>
+        <div className="absolute left-0 w-full z-30 relative md:hidden">
+          {/* SVG */}
+          <svg
+            className="w-full h-[26vh] mt-1"
+            viewBox="0 0 1722 652"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0 63.7849C687.512 -44.3301 839.03 -6.23871 1722 112.301V490.929C650.719 661.486 529.387 717.644 0 555.45V63.7849Z"
+              fill="#00576E"
+            />
+          </svg>
 
-        {/* Mobile text inside the SVG */}
-        <div className="absolute top-10 left-1/2 transform -translate-x-1/2 w-full text-center md:hidden z-40 px-4">
-          <h2 className="text-2xl font-bold mb-2 text-white">
-            We’re here <span className="text-cyan-300">To Help</span>
-          </h2>
-          <p className="text-base opacity-90 mb-2 text-white">
-            If you want it more formal, more friendly, or specific to visas &
-            travel, I can fine-tune it in seconds.
-          </p>
-          <p className="font-semibold text-white">Ammad Ishfaq — CEO</p>
+          {/* TEXT — PERFECT CENTER */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            <h2 className="text-2xl font-bold mb-2 text-white">
+              We’re here <span className="text-cyan-300">To Help</span>
+            </h2>
+
+            <p className="text-base opacity-90 mb-2 text-white max-w-md">
+              If you want it more formal, more friendly, or specific to visas &
+              travel, I can fine-tune it in seconds.
+            </p>
+
+            <p className="font-semibold text-white">Ammad Ishfaq — CEO</p>
+          </div>
         </div>
       </div>
     </div>

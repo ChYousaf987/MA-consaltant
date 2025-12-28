@@ -189,7 +189,7 @@ const Navbar = () => {
       {/* ================= NAVBAR ================= */}
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 ${
-          scrolled ? "bg-[#0000006a] shadow-lg" : "bg-transparent"
+          scrolled ? "bg-[#00566e94] shadow-lg" : "bg-transparent"
         }`}
       >
         <div className="md:max-w-7xl mx-auto px-3 md:px-10 pt-3 flex justify-between items-center">
@@ -199,7 +199,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex font-bold items-center gap-8">
+          <div className="hidden cursor-pointer lg:flex font-bold items-center gap-8">
             <a className="font-bold border-b-2 border-white text-white hover:border-[#00CED1] transition-all duration-300">
               Home
             </a>
@@ -223,7 +223,10 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Icon */}
-          <button onClick={() => setOpen(!open)} className="lg:hidden text-3xl">
+          <button
+            onClick={() => setOpen(!open)}
+            className="lg:hidden text-white text-3xl"
+          >
             {open ? <HiX /> : <HiMenu />}
           </button>
         </div>
@@ -262,7 +265,7 @@ const Navbar = () => {
       </nav>
 
       {/* ================= HERO CONTENT ================= */}
-      <div className="pt-[80px] md:pt-[220px] relative z-30 md:max-w-7xl mx-auto ps-2 md:px-10 h-full grid grid-cols-1 lg:grid-cols-2 items-center">
+      <div className="pt-[150px] md:pt-[220px] relative z-30 md:max-w-7xl mx-auto ps-2 md:px-10 h-full grid grid-cols-1 lg:grid-cols-2 items-center">
         {/* LEFT CONTENT */}
         <div>
           <div className="-mt-32 -ml-20 mb-20 hidden md:block">
