@@ -180,7 +180,8 @@ const ServiceOffer = () => {
         {services.map((service, i) => (
           <div
             key={i}
-            className="bg-white rounded-3xl shadow-2xl p-6 px-4 flex flex-col justify-between hover:shadow-md transition"
+            className="bg-white rounded-3xl shadow-2xl p-6 px-4 flex flex-col justify-between 
+                       hover:shadow-xl hover:-translate-y-2 transform transition-all duration-300"
           >
             <div>
               <h3 className="text-2xl text-center font-semibold text-primary">
@@ -199,11 +200,11 @@ const ServiceOffer = () => {
             </div>
 
             <div className="flex items-center justify-between mt-6">
-              <button className="bg-primary text-white text-sm px-4 py-2 rounded-full hover:opacity-90 transition">
+              <button className="bg-primary text-white text-sm px-4 py-2 rounded-full hover:opacity-90 hover:scale-105 transform transition-all duration-300">
                 Book Service
               </button>
 
-              <div className="w-12 h-12 p-2 rounded-xl bg-gray-300 shadow-2xl flex items-center justify-center text-secondary">
+              <div className="w-12 h-12 p-2 rounded-xl bg-gray-300 shadow-2xl flex items-center justify-center text-secondary hover:scale-110 transform transition-all duration-300">
                 {service.icon}
               </div>
             </div>

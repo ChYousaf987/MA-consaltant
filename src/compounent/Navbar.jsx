@@ -1,23 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Scroll effect for navbar background
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) setScrolled(true);
+      else setScrolled(false);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section className="relative bg-[#F3F3F3] h-[80vh] md:h-[90vh]">
       {/* ================= BACKGROUND SHAPES ================= */}
       <div className="absolute right-0 top-0 z-20 pointer-events-none">
-        {" "}
         <svg
           width="318"
           height="335"
           viewBox="0 0 1044 1095"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {" "}
           <defs>
-            {" "}
             <pattern
               id="heroPattern"
               patternUnits="userSpaceOnUse"
@@ -25,15 +33,14 @@ const Navbar = () => {
               height="1208.65"
               patternTransform="rotate(38.0213 0 150.325)"
             >
-              {" "}
               <image
                 href="/hero.jpg"
                 width="1280.36"
                 height="1208.65"
                 preserveAspectRatio="xMidYMid slice"
-              />{" "}
-            </pattern>{" "}
-          </defs>{" "}
+              />
+            </pattern>
+          </defs>
           <rect
             x="-37.947"
             y="141.366"
@@ -42,19 +49,17 @@ const Navbar = () => {
             rx="94"
             transform="rotate(-38.0213 -37.947 141.366)"
             fill="url(#heroPattern)"
-          />{" "}
-        </svg>{" "}
-      </div>{" "}
-      {/* BLUE BACK SHAPE */}{" "}
+          />
+        </svg>
+      </div>
+
       <div className="absolute right-0 top-0 z-10">
-        {" "}
         <svg
           width="328"
           height="345"
           viewBox="0 0 1078 1105"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {" "}
           <rect
             x="-34.8875"
             y="193.65"
@@ -63,10 +68,10 @@ const Navbar = () => {
             rx="94"
             transform="rotate(-43.454 -34.8875 193.65)"
             fill="#007999"
-          />{" "}
-        </svg>{" "}
+          />
+        </svg>
       </div>
-      {/* IMAGE SHAPE */}
+
       <div className="hidden md:block absolute right-0 top-0 z-20 pointer-events-none">
         <svg
           width="890"
@@ -102,7 +107,7 @@ const Navbar = () => {
           />
         </svg>
       </div>
-      {/* BLUE BACK SHAPE */}
+
       <div className="hidden md:block absolute right-0 top-0 z-10">
         <svg
           width="908"
@@ -121,6 +126,7 @@ const Navbar = () => {
           />
         </svg>
       </div>
+
       {/* LEFT CURVE */}
       <div className="hidden md:block absolute -left-10 -top-9 z-0">
         <svg
@@ -138,10 +144,7 @@ const Navbar = () => {
               x2="0"
               y2="1009"
             >
-              {/* TOP */}
               <stop offset="0%" stopColor="#007999" stopOpacity="1" />
-
-              {/* BOTTOM */}
               <stop offset="80%" stopColor="#52DBFF" stopOpacity="1" />
             </linearGradient>
           </defs>
@@ -153,6 +156,7 @@ const Navbar = () => {
           />
         </svg>
       </div>
+
       <div className="absolute md:hidden -left-4 top-[20%] md:top-16 z-10">
         <svg
           width="136"
@@ -174,54 +178,86 @@ const Navbar = () => {
               y2="504"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#007999" />
-              <stop offset="1" stop-color="#7CE4FF" />
+              <stop stopColor="#007999" />
+              <stop offset="1" stopColor="#7CE4FF" />
             </linearGradient>
           </defs>
         </svg>
       </div>
+
       {/* ================= NAVBAR ================= */}
-      <nav className="relative z-30 md:max-w-7xl mx-auto px-3 md:px-10 pt-3 flex justify-between items-center">
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          <img src="/logo.png" alt="logo" className="w-32 md:w-48 md:ml-20" />
-        </div>
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 ${
+          scrolled ? "bg-[#0000006a] shadow-lg" : "bg-transparent"
+        }`}
+      >
+        <div className="md:max-w-7xl mx-auto px-3 md:px-10 pt-3 flex justify-between items-center">
+          {/* Logo */}
+          <div className="flex items-center gap-3">
+            <img src="/logo.png" alt="logo" className="w-32 md:w-48 md:ml-40" />
+          </div>
 
-        {/* Desktop Menu (unchanged) */}
-        <div className="hidden lg:flex font-bold items-center gap-8">
-          <a className="font-bold text-white border-b-2 border-white">Home</a>
-          <a className="text-white">About Us</a>
-          <a className="text-white">Services</a>
-          <a className="text-white">Blogs</a>
-          <a className="text-white">Contact Us</a>
-          <button className="bg-primary hover:scale-110 transition-all duration-300 text-white px-5 py-2 rounded-full">
-            Login
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex font-bold items-center gap-8">
+            <a className="font-bold border-b-2 border-white text-white hover:border-[#00CED1] transition-all duration-300">
+              Home
+            </a>
+            <a className="text-white hover:text-[#00CED1] transition-all duration-300">
+              About Us
+            </a>
+            <a className="text-white hover:text-[#00CED1] transition-all duration-300">
+              Services
+            </a>
+            <a className="text-white hover:text-[#00CED1] transition-all duration-300">
+              Blogs
+            </a>
+            <a className="text-white hover:text-[#00CED1] transition-all duration-300">
+              Contact Us
+            </a>
+            <button className="bg-primary hover:scale-110 transition-all duration-300 text-white px-5 py-2 rounded-full">
+              Login
+            </button>
+          </div>
+
+          {/* Mobile Menu Icon */}
+          <button onClick={() => setOpen(!open)} className="lg:hidden text-3xl">
+            {open ? <HiX /> : <HiMenu />}
           </button>
         </div>
 
-        {/* Mobile Menu Icon */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="lg:hidden text-white text-3xl"
-        >
-          {open ? <HiX /> : <HiMenu />}
-        </button>
+        {/* Mobile Dropdown Menu */}
+        <div className="lg:hidden overflow-hidden">
+          <div
+            className={`absolute top-full left-0 w-full bg-primary z-40 px-6 py-6 space-y-4 font-bold transition-all duration-300 ${
+              open
+                ? "opacity-100 translate-y-0 pointer-events-auto"
+                : "opacity-0 -translate-y-4 pointer-events-none"
+            }`}
+          >
+            <a className="block text-white hover:text-[#00CED1] transition-all duration-300">
+              Home
+            </a>
+            <a className="block text-white hover:text-[#00CED1] transition-all duration-300">
+              About Us
+            </a>
+            <a className="block text-white hover:text-[#00CED1] transition-all duration-300">
+              Services
+            </a>
+            <a className="block text-white hover:text-[#00CED1] transition-all duration-300">
+              Blogs
+            </a>
+            <a className="block text-white hover:text-[#00CED1] transition-all duration-300">
+              Contact Us
+            </a>
+            <button className="w-full bg-white text-primary py-2 rounded-full hover:scale-105 transition-all duration-300">
+              Login
+            </button>
+          </div>
+        </div>
       </nav>
-      {/* Mobile Dropdown Menu */}
-      {open && (
-        <div className="lg:hidden absolute top-[80px] left-0 w-full bg-primary z-40 px-10 py-6 space-y-4 font-bold transition-all duration-300">
-          <a className="block text-white">Home</a>
-          <a className="block text-white">About Us</a>
-          <a className="block text-white">Services</a>
-          <a className="block text-white">Blogs</a>
-          <a className="block text-white">Contact Us</a>
-          <button className="w-full bg-white text-primary py-2 rounded-full">
-            Login
-          </button>
-        </div>
-      )}
+
       {/* ================= HERO CONTENT ================= */}
-      <div className="relative z-30 md:max-w-7xl mx-auto ps-2 md:px-10 h-full grid grid-cols-1 lg:grid-cols-2 items-center">
+      <div className="pt-[80px] md:pt-[220px] relative z-30 md:max-w-7xl mx-auto ps-2 md:px-10 h-full grid grid-cols-1 lg:grid-cols-2 items-center">
         {/* LEFT CONTENT */}
         <div>
           <div className="-mt-32 -ml-20 mb-20 hidden md:block">

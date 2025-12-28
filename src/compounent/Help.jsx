@@ -44,7 +44,7 @@ const Help = () => {
           fill="#00576E"
         />
       </svg>
-      <div className="hidden md:block absolute right-10 bottom-32 z-50  mb-20">
+      <div className="hidden md:block absolute right-10 bottom-32 z-40  mb-20">
         {/* Dots */}
         <div className="grid grid-cols-12 gap-2 ">
           {[...Array(84)].map((_, i) => (

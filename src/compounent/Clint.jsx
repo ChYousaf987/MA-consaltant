@@ -100,7 +100,7 @@ const Clint = () => {
             <span className=" text-secondary">Clients Say</span>
           </h2>
           <h2 className="md:hidden text-4xl font-bold text-primary leading-tight">
-            What Our 
+            What Our
             <span className="text-secondary"> Clients Say</span>
           </h2>
           <p className="mt-4 text-gray-600">
@@ -115,7 +115,8 @@ const Clint = () => {
         {testimonials.map((item, i) => (
           <div
             key={i}
-            className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition"
+            className="bg-white rounded-3xl shadow-2xl p-6 px-4 flex flex-col justify-between 
+                       hover:shadow-xl hover:-translate-y-2 transform transition-all duration-300"
           >
             <h4 className="font-semibold text-primary">{item.name}</h4>
 
