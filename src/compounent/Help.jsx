@@ -123,7 +123,7 @@ const Help = () => {
           />
         </svg>
 
-        <div className="absolute left-0 w-full z-30 relative md:hidden">
+        <div className=" left-0 w-full z-30 relative md:hidden">
           {/* SVG */}
           <svg
             className="w-full h-[26vh] mt-1"
