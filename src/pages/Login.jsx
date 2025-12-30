@@ -82,15 +82,18 @@ const Login = () => {
               </Link>
             </div>
 
-            <button className="w-full bg-[#007999] text-white font-semibold py-3 rounded-full mt-4">
-              SIGN UP
+            <button className="w-full  bg-[#007999] text-white font-semibold py-3 rounded-full mt-28">
+              SIGN IN
             </button>
           </form>
 
-          <p className="text-center text-sm mt-4 opacity-80">
-            Already have an account?{" "}
-            <Link to="/signup" className="underline cursor-pointer">
-              Sign In
+          <p className="text-center text-sm mt-4 text-gray-600">
+            Don’t have an account?{" "}
+            <Link
+              to="/signup"
+              className="font-medium text-[#007999] hover:underline transition"
+            >
+              Sign Up
             </Link>
           </p>
         </div>
