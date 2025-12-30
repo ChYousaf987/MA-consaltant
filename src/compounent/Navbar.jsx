@@ -21,7 +21,7 @@ const Navbar = () => {
       {/* ================= NAVBAR ================= */}
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 ${
-          scrolled ? "bg-[#00566e94] shadow-lg" : "bg-transparent"
+          scrolled ? "bg-[#00566e60] shadow-lg" : "bg-transparent"
         }`}
       >
         <div className="md:w-[90%] mx-auto px-3 md:px-10 pt-3 flex justify-between items-center">
@@ -31,13 +31,13 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden cursor-pointer text-[#000544] lg:flex font-bold items-center gap-8">
-            <a className="font-bold border-b-2 border-white  hover:border-[#00CED1] transition-all duration-300">
+          <div className="hidden cursor-pointer text-white lg:flex font-bold items-center gap-8">
+            <Link to='/' className="font-bold border-b-2 border-white  hover:border-[#00CED1] transition-all duration-300">
               Home
-            </a>
-            <a className=" hover:text-[#00CED1] transition-all duration-300">
+            </Link>
+            <Link to="/about" className=" hover:text-[#00CED1] transition-all duration-300">
               About Us
-            </a>
+            </Link>
             <a className=" hover:text-[#00CED1] transition-all duration-300">
               Services
             </a>
@@ -57,7 +57,7 @@ const Navbar = () => {
           {/* Mobile Menu Icon */}
           <button
             onClick={() => setOpen(!open)}
-            className="lg:hidden  text-3xl"
+            className="lg:hidden text-white text-3xl"
           >
             {open ? <HiX /> : <HiMenu />}
           </button>
@@ -66,18 +66,18 @@ const Navbar = () => {
         {/* Mobile Dropdown Menu */}
         <div className="lg:hidden overflow-hidden">
           <div
-            className={`absolute text-[#000544] top-full left-0 w-full bg-[#00566ef6] text-center z-40 px-6 py-6 space-y-4 font-bold transition-all duration-300 ${
+            className={`absolute text-white top-full left-0 w-full bg-[#00566e96] text-center z-40 px-6 py-6 space-y-4 font-bold transition-all duration-300 ${
               open
                 ? "opacity-100 translate-y-0 pointer-events-auto"
                 : "opacity-0 -translate-y-4 pointer-events-none"
             }`}
           >
-            <a className="block  hover:text-[#00CED1] transition-all duration-300">
+            <Link to="/" className="block  hover:text-[#00CED1] transition-all duration-300">
               Home
-            </a>
-            <a className="block  hover:text-[#00CED1] transition-all duration-300">
+            </Link>
+             <Link to="/about" className="block  hover:text-[#00CED1] transition-all duration-300">
               About Us
-            </a>
+            </Link>
             <a className="block  hover:text-[#00CED1] transition-all duration-300">
               Services
             </a>

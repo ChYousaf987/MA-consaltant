@@ -42,15 +42,30 @@ const ContactUs = () => {
                 transform="translate(1728, 0) scale(-1, 1)"
               />
             </pattern>
+
+            {/* Overlay Gradient */}
+            <linearGradient id="curveOverlay" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#007999" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#000000" stopOpacity="0.15" />
+            </linearGradient>
           </defs>
 
+          {/* Base shape (fallback color) */}
           <path
             d="M1728 64.0788C1038.09 -44.5343 886.046 -6.26746 0 112.819V493.191C1075.01 664.534 1196.77 720.951 1728 558.01V64.0788Z"
             fill="#D9D9D9"
           />
+
+          {/* Image */}
           <path
             d="M1728 64.0788C1038.09 -44.5343 886.046 -6.26746 0 112.819V493.191C1075.01 664.534 1196.77 720.951 1728 558.01V64.0788Z"
             fill="url(#pattern0)"
+          />
+
+          {/* Overlay */}
+          <path
+            d="M1728 64.0788C1038.09 -44.5343 886.046 -6.26746 0 112.819V493.191C1075.01 664.534 1196.77 720.951 1728 558.01V64.0788Z"
+            fill="url(#curveOverlay)"
           />
         </svg>
       </div>

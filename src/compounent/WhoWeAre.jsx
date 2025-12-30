@@ -2,7 +2,7 @@ import React from "react";
 
 const WhoWeAre = () => {
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py- bg-[#F3F3F3] overflow-hidden">
       {/* BACKGROUND SVG */}
       <svg
         className="hidden md:block absolute bottom-0 left-0 w-full h-auto -z-10"
@@ -24,31 +24,31 @@ const WhoWeAre = () => {
             <img
               src="/girl.jpg"
               alt="Consultant"
-              className="w-72 h-80 object-cover rounded-2xl shadow-lg"
+              className="w-48 md:w-72 h-56 md:h-80 object-cover rounded-2xl shadow-lg"
             />
 
-            <div className="absolute -bottom-10 left-10 bg-primary text-white rounded-xl px-5 py-3 shadow-lg">
+            <div className="absolute -bottom-10 left-3 md:left-10 bg-primary text-white rounded-xl px-5 py-3 shadow-lg">
               <p className="text-2xl font-bold leading-none">680+</p>
               <p className="text-xs uppercase tracking-wide">Business Trust</p>
             </div>
           </div>
 
-          <div className="absolute left-56 top-20">
+          <div className="absolute left-44 md:left-56 top-16 md:top-20">
             <img
               src="/boy.jpg"
               alt="Business Man"
-              className="w-72 h-80 object-cover rounded-2xl shadow-lg"
+              className="w-72 h-52 md:h-80 object-cover rounded-2xl shadow-lg"
             />
           </div>
         </div>
 
         {/* RIGHT – CONTENT */}
         <div>
-          <div className="flex items-center gap-4 mb-4">
+          <div className="flex justify-center md:justify-start items-center gap-4 my-7 md:my-4">
             <h2 className="text-3xl font-bold text-[#0b2c4d]">
               Who We <span className="text-secondary">Are</span>
             </h2>
-            <span className="h-[3px] w-14 bg-[#0099cc] rounded-full" />
+            <span className="h-[3px] mt-2 w-14 bg-[#0099cc] rounded-full" />
           </div>
 
           <p className="text-gray-900 leading-relaxed max-w-lg">
@@ -57,8 +57,8 @@ const WhoWeAre = () => {
             every process simple, transparent, and stress-free for our clients.
           </p>
 
-          <div className="flex items-center gap-3 mt-6">
-            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gray-100 border border-[#0099cc] text-[#0099cc]">
+          <div className="flex items-center justify-center md:justify-start gap-3 mt-6">
+            <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gray-200 border border-[#0099cc] text-[#0099cc]">
               <svg
                 width="27"
                 height="27"
@@ -77,7 +77,7 @@ const WhoWeAre = () => {
             </p>
           </div>
 
-          <button className="mt-8 bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-[#007fb0] transition">
+          <button className="mt-8 mx-auto block md:mx-0 bg-primary text-white px-8 py-3 rounded-full font-semibold hover:scale-110 transition-all duration-500">
             Learn more
           </button>
         </div>

@@ -199,24 +199,30 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden cursor-pointer lg:flex font-bold items-center gap-8">
-            <a className="font-bold border-b-2 border-white text-white hover:border-[#00CED1] transition-all duration-300">
+          <div className="hidden cursor-pointer text-white lg:flex font-bold items-center gap-8">
+            <Link
+              to="/"
+              className="font-bold border-b-2 border-white  hover:border-[#00CED1] transition-all duration-300"
+            >
               Home
-            </a>
-            <a className="text-white hover:text-[#00CED1] transition-all duration-300">
+            </Link>
+            <Link
+              to="/about"
+              className=" hover:text-[#00CED1] transition-all duration-300"
+            >
               About Us
-            </a>
-            <a className="text-white hover:text-[#00CED1] transition-all duration-300">
+            </Link>
+            <a className=" hover:text-[#00CED1] transition-all duration-300">
               Services
             </a>
-            <a className="text-white hover:text-[#00CED1] transition-all duration-300">
+            <a className=" hover:text-[#00CED1] transition-all duration-300">
               Blogs
             </a>
-            <a className="text-white hover:text-[#00CED1] transition-all duration-300">
+            <a className=" hover:text-[#00CED1] transition-all duration-300">
               Contact Us
             </a>
             <Link to="/signup">
-              <button className="bg-primary hover:scale-110 transition-all duration-300 text-white px-5 py-2 rounded-full">
+              <button className="bg-primary hover:scale-110 transition-all duration-300  px-5 py-2 rounded-full">
                 Login
               </button>
             </Link>
@@ -234,25 +240,31 @@ const Navbar = () => {
         {/* Mobile Dropdown Menu */}
         <div className="lg:hidden overflow-hidden">
           <div
-            className={`absolute top-full left-0 w-full bg-[#00566ef6] text-center z-40 px-6 py-6 space-y-4 font-bold transition-all duration-300 ${
+            className={`absolute text-white top-full left-0 w-full bg-[#00566ef6] text-center z-40 px-6 py-6 space-y-4 font-bold transition-all duration-300 ${
               open
                 ? "opacity-100 translate-y-0 pointer-events-auto"
                 : "opacity-0 -translate-y-4 pointer-events-none"
             }`}
           >
-            <a className="block text-white hover:text-[#00CED1] transition-all duration-300">
+            <Link
+              to="/"
+              className="block  hover:text-[#00CED1] transition-all duration-300"
+            >
               Home
-            </a>
-            <a className="block text-white hover:text-[#00CED1] transition-all duration-300">
+            </Link>
+            <Link
+              to="/about"
+              className="block  hover:text-[#00CED1] transition-all duration-300"
+            >
               About Us
-            </a>
-            <a className="block text-white hover:text-[#00CED1] transition-all duration-300">
+            </Link>
+            <a className="block  hover:text-[#00CED1] transition-all duration-300">
               Services
             </a>
-            <a className="block text-white hover:text-[#00CED1] transition-all duration-300">
+            <a className="block  hover:text-[#00CED1] transition-all duration-300">
               Blogs
             </a>
-            <a className="block text-white hover:text-[#00CED1] transition-all duration-300">
+            <a className="block  hover:text-[#00CED1] transition-all duration-300">
               Contact Us
             </a>
             <Link to="/signup">
@@ -279,7 +291,7 @@ const Navbar = () => {
           </div>
 
           <div className="px-3">
-            <h1 className="text-2xl w-[55%] md:w-auto md:text-4xl font-bold text-primary mb-5">
+            <h1 className="text-2xl w-[60%] mt-14 md:w-auto md:text-4xl font-bold text-primary mb-5">
               Reliable Services, Simplified
             </h1>
 

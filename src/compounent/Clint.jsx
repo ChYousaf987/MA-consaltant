@@ -93,7 +93,7 @@ const Clint = () => {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 px-6">
+      <div className="relative z-10 text-center md:text-start max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 px-6">
         <div>
           <h2 className="hidden md:block  text-4xl font-bold text-primary leading-tight">
             What Our <br />
@@ -121,7 +121,7 @@ const Clint = () => {
             <h4 className="font-semibold text-primary">{item.name}</h4>
 
             {/* Stars */}
-            <div className="flex text-yellow-400 text-sm mt-1">★★★★★</div>
+            <div className="flex text-yellow-400 mx-auto md:mx-0 text-sm mt-1">★★★★★</div>
 
             <p className="text-sm text-gray-600 mt-3 leading-relaxed">
               {item.text}
