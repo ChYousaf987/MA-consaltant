@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import About from "./pages/About";
+import UmrahServices from "./pages/UmrahServices";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about" element={<About />} />
+          <Route path="/umrah-service" element={<UmrahServices />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -212,9 +212,12 @@ const Navbar = () => {
             >
               About Us
             </Link>
-            <a className=" hover:text-[#00CED1] transition-all duration-300">
+            <Link
+              to="/umrah-service"
+              className=" hover:text-[#00CED1] transition-all duration-300"
+            >
               Services
-            </a>
+            </Link>
             <a className=" hover:text-[#00CED1] transition-all duration-300">
               Blogs
             </a>
@@ -258,9 +261,12 @@ const Navbar = () => {
             >
               About Us
             </Link>
-            <a className="block  hover:text-[#00CED1] transition-all duration-300">
+            <Link
+              to="/umrah-service"
+              className="block  hover:text-[#00CED1] transition-all duration-300"
+            >
               Services
-            </a>
+            </Link>
             <a className="block  hover:text-[#00CED1] transition-all duration-300">
               Blogs
             </a>

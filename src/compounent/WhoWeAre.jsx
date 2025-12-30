@@ -2,10 +2,10 @@ import React from "react";
 
 const WhoWeAre = () => {
   return (
-    <section className="relative py- bg-[#F3F3F3] overflow-hidden">
+    <section className="relative bg-[#F3F3F3] md:bg-white py-20 overflow-hidden">
       {/* BACKGROUND SVG */}
       <svg
-        className="hidden md:block absolute bottom-0 left-0 w-full h-auto -z-10"
+        className="md:block hidden absolute bottom-0 left-0 w-full h-auto"
         viewBox="0 0 1723 985"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

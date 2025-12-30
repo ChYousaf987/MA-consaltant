@@ -32,10 +32,16 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden cursor-pointer text-white lg:flex font-bold items-center gap-8">
-            <Link to='/' className="font-bold border-b-2 border-white  hover:border-[#00CED1] transition-all duration-300">
+            <Link
+              to="/"
+              className="font-bold border-b-2 border-white  hover:border-[#00CED1] transition-all duration-300"
+            >
               Home
             </Link>
-            <Link to="/about" className=" hover:text-[#00CED1] transition-all duration-300">
+            <Link
+              to="/about"
+              className=" hover:text-[#00CED1] transition-all duration-300"
+            >
               About Us
             </Link>
             <a className=" hover:text-[#00CED1] transition-all duration-300">
@@ -72,15 +78,24 @@ const Navbar = () => {
                 : "opacity-0 -translate-y-4 pointer-events-none"
             }`}
           >
-            <Link to="/" className="block  hover:text-[#00CED1] transition-all duration-300">
+            <Link
+              to="/"
+              className="block  hover:text-[#00CED1] transition-all duration-300"
+            >
               Home
             </Link>
-             <Link to="/about" className="block  hover:text-[#00CED1] transition-all duration-300">
+            <Link
+              to="/about"
+              className="block  hover:text-[#00CED1] transition-all duration-300"
+            >
               About Us
             </Link>
-            <a className="block  hover:text-[#00CED1] transition-all duration-300">
+            <Link
+              to="/umrah-service"
+              className="block  hover:text-[#00CED1] transition-all duration-300"
+            >
               Services
-            </a>
+            </Link>
             <a className="block  hover:text-[#00CED1] transition-all duration-300">
               Blogs
             </a>
