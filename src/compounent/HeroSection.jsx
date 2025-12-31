@@ -1,10 +1,50 @@
-import React, { useEffect, useState } from "react";
-import { HiMenu, HiX } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
+import { NavLink, Link, useLocation } from "react-router-dom";
+
+const services = [
+  { name: "Haj & Umrah", path: "/umrah-service" },
+  { name: "Study Visa", path: "/ticketvisa" },
+  { name: "Ticket Booking", path: "/service-3" },
+];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const location = useLocation();
+  const servicesRef = useRef(null);
+
+  const navLinkClass = ({ isActive }) =>
+    `pb-1 transition-all duration-300 ${
+      isActive
+        ? "border-b-2 border-[#00CED1]"
+        : "border-b-2 border-transparent hover:border-[#00CED1]"
+    }`;
+
+  /* Close menus on route change */
+  useEffect(() => {
+    setOpen(false);
+    setServicesOpen(false);
+  }, [location.pathname]);
+
+  /* Scroll effect */
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  /* Outside click close */
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (servicesRef.current && !servicesRef.current.contains(e.target)) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   // Scroll effect for navbar background
   useEffect(() => {
@@ -188,50 +228,81 @@ const Navbar = () => {
 
       {/* ================= NAVBAR ================= */}
       <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 ${
-          scrolled ? "bg-[#00566e94] shadow-lg" : "bg-transparent"
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+          scrolled ? "bg-[#00566e60] backdrop-blur shadow-lg" : "bg-transparent"
         }`}
       >
-        <div className="md:max-w-7xl mx-auto px-3 md:px-10 pt-3 flex justify-between items-center">
+        <div className="md:w-[90%] mx-auto px-4 md:px-10 py-3 flex justify-between items-center">
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <img src="/logo.png" alt="logo" className="w-32 md:w-48 md:ml-40" />
-          </div>
+          <Link to="/">
+            <img src="/logo.png" alt="logo" className="w-32 md:w-48" />
+          </Link>
 
-          {/* Desktop Menu */}
-          <div className="hidden cursor-pointer text-white lg:flex font-bold items-center gap-8">
-            <Link
-              to="/"
-              className="font-bold border-b-2 border-white  hover:border-[#00CED1] transition-all duration-300"
-            >
+          {/* ================= DESKTOP ================= */}
+          <div className="hidden lg:flex items-center gap-8 text-white font-bold">
+            <NavLink to="/" className={navLinkClass}>
               Home
-            </Link>
-            <Link
-              to="/about"
-              className=" hover:text-[#00CED1] transition-all duration-300"
-            >
+            </NavLink>
+
+            <NavLink to="/about" className={navLinkClass}>
               About Us
-            </Link>
-            <Link
-              to="/umrah-service"
-              className=" hover:text-[#00CED1] transition-all duration-300"
-            >
-              Services
-            </Link>
-            <a className=" hover:text-[#00CED1] transition-all duration-300">
+            </NavLink>
+
+            {/* SERVICES */}
+            <div className="relative" ref={servicesRef}>
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="flex items-center gap-1 pb-1 hover:text-[#00CED1]"
+              >
+                Services
+                <HiChevronDown
+                  className={`transition-transform ${
+                    servicesOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              <div
+                className={`absolute left-0 top-full mt-3 w-52 bg-[#00566e] rounded-xl shadow-xl transition-all duration-300 ${
+                  servicesOpen
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-2 pointer-events-none"
+                }`}
+              >
+                {services.map((item) => (
+                  <NavLink
+                    key={item.name}
+                    to={item.path}
+                    className={({ isActive }) =>
+                      `block px-5 py-3 transition ${
+                        isActive
+                          ? "bg-[#00CED1] text-black"
+                          : "hover:bg-[#00CED1] hover:text-black"
+                      }`
+                    }
+                  >
+                    {item.name}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+
+            <NavLink to="/blogs" className={navLinkClass}>
               Blogs
-            </a>
-            <a className=" hover:text-[#00CED1] transition-all duration-300">
+            </NavLink>
+
+            <NavLink to="/contact" className={navLinkClass}>
               Contact Us
-            </a>
+            </NavLink>
+
             <Link to="/signup">
-              <button className="bg-primary hover:scale-110 transition-all duration-300  px-5 py-2 rounded-full">
+              <button className="bg-primary px-6 py-2 rounded-full hover:scale-110 transition">
                 Login
               </button>
             </Link>
           </div>
 
-          {/* Mobile Menu Icon */}
+          {/* ================= MOBILE ICON ================= */}
           <button
             onClick={() => setOpen(!open)}
             className="lg:hidden text-white text-3xl"
@@ -240,41 +311,68 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Dropdown Menu */}
-        <div className="lg:hidden overflow-hidden">
-          <div
-            className={`absolute text-white top-full left-0 w-full bg-[#00566ef6] text-center z-40 px-6 py-6 space-y-4 font-bold transition-all duration-300 ${
-              open
-                ? "opacity-100 translate-y-0 pointer-events-auto"
-                : "opacity-0 -translate-y-4 pointer-events-none"
-            }`}
-          >
-            <Link
-              to="/"
-              className="block  hover:text-[#00CED1] transition-all duration-300"
-            >
+        {/* ================= MOBILE MENU ================= */}
+        <div
+          className={`lg:hidden bg-[#00566e] text-white transition-all duration-300 overflow-hidden ${
+            open ? "max-h-[1000px] opacity-100 py-4" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="flex flex-col gap-4 px-6">
+            <NavLink to="/" className="block py-2 border-b border-white">
               Home
-            </Link>
-            <Link
-              to="/about"
-              className="block  hover:text-[#00CED1] transition-all duration-300"
-            >
+            </NavLink>
+            <NavLink to="/about" className="block py-2 border-b border-white">
               About Us
-            </Link>
-            <Link
-              to="/umrah-service"
-              className="block  hover:text-[#00CED1] transition-all duration-300"
-            >
-              Services
-            </Link>
-            <a className="block  hover:text-[#00CED1] transition-all duration-300">
+            </NavLink>
+
+            {/* MOBILE SERVICES */}
+            <div className="relative" ref={servicesRef}>
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="flex justify-between items-center w-full py-2 border-b border-white"
+              >
+                Services
+                <HiChevronDown
+                  className={`transition-transform ${
+                    servicesOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              <div
+                className={`flex flex-col pl-4 mt-2 bg-[#00485c] rounded-lg overflow-hidden transition-all duration-300 ${
+                  servicesOpen
+                    ? "max-h-[500px] opacity-100"
+                    : "max-h-0 opacity-0"
+                }`}
+              >
+                {services.map((item) => (
+                  <NavLink
+                    key={item.name}
+                    to={item.path}
+                    className={({ isActive }) =>
+                      `block py-2 px-3 transition ${
+                        isActive
+                          ? "bg-[#00CED1] text-black"
+                          : "hover:bg-[#00CED1] hover:text-black"
+                      }`
+                    }
+                  >
+                    {item.name}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+
+            <NavLink to="/blogs" className="block py-2 border-b border-white">
               Blogs
-            </a>
-            <a className="block  hover:text-[#00CED1] transition-all duration-300">
+            </NavLink>
+            <NavLink to="/contact" className="block py-2 border-b border-white">
               Contact Us
-            </a>
+            </NavLink>
+
             <Link to="/signup">
-              <button className="bg-primary mt-4 hover:scale-110 transition-all duration-300 text-white px-5 py-2 rounded-full">
+              <button className="bg-primary mt-2 px-6 py-2 rounded-full hover:scale-110 transition">
                 Login
               </button>
             </Link>

@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import About from "./pages/About";
 import UmrahServices from "./pages/UmrahServices";
+import Ticketvisa from "./pages/Ticketvisa";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/about" element={<About />} />
           <Route path="/umrah-service" element={<UmrahServices />} />
+          <Route path="/ticketvisa" element={<Ticketvisa />} />
         </Routes>
       </BrowserRouter>
     </>

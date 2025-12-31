@@ -6,7 +6,7 @@ const packageOptions = ["Basic Package", "Standard Package", "Premium Package"];
 const cityOptions = ["Karachi", "Lahore", "Islamabad", "Peshawar"];
 const countryOptions = ["Pakistan", "UAE", "UK", "Canada", "Australia"];
 
-const UmrahForm = () => {
+const StudyvisaForm = () => {
   return (
     <section className="relative bg-[#F3F3F3] md:bg-white py-16 md:py-20 overflow-hidden flex justify-center">
       {/* BACKGROUND SVG */}
@@ -43,7 +43,7 @@ const UmrahForm = () => {
             <Input placeholder="Phone Number" />
 
             <Select placeholder="Select Service" options={servicesOptions} />
-            <Select placeholder="Package Type" options={packageOptions} />
+            <Select placeholder="study Country" options={packageOptions} />
 
             <input
               type="date"
@@ -73,7 +73,7 @@ const UmrahForm = () => {
   );
 };
 
-export default UmrahForm;
+export default StudyvisaForm;
 
 /* ================= REUSABLE COMPONENTS ================= */
 
@@ -109,3 +109,5 @@ const Select = ({ placeholder, options }) => (
     />
   </div>
 );
+
+
