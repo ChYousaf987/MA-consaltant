@@ -5,13 +5,15 @@ import Footer from '../compounent/Footer';
 import ContactUs from '../compounent/ContactUs';
 import StudyvisaForm from '../compounent/StudyvisaForm';
 import VisaMain from '../compounent/VisaMain';
+import TicketMain from '../compounent/TicketMain';
+import TicketBookingform from '../compounent/TicketBookingform';
 
 const Ticketvisa = () => {
   return (
     <>
       <Navbar />
-      <VisaMain />
-      <StudyvisaForm />
+      <TicketMain />
+      <TicketBookingform />
       <Clint />
 
       <ContactUs />

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { HiChevronDown } from "react-icons/hi";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const servicesOptions = ["Study Visa", "Work Visa", "Visit Visa"];
 const packageOptions = ["Basic Package", "Standard Package", "Premium Package"];
@@ -7,6 +9,20 @@ const cityOptions = ["Karachi", "Lahore", "Islamabad", "Peshawar"];
 const countryOptions = ["Pakistan", "UAE", "UK", "Canada", "Australia"];
 
 const StudyvisaForm = () => {
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  // Custom input for react-datepicker to show placeholder and style
+  const StyledDateInput = React.forwardRef(({ value, onClick }, ref) => (
+    <input
+      onClick={onClick}
+      ref={ref}
+      value={value || ""}
+      readOnly
+      placeholder="Select Date"
+      className="w-full px-4 py-3 rounded-full border border-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 cursor-pointer block text-gray-500"
+    />
+  ));
+
   return (
     <section className="relative bg-[#F3F3F3] md:bg-white py-16 md:py-20 overflow-hidden flex justify-center">
       {/* BACKGROUND SVG */}
@@ -43,12 +59,19 @@ const StudyvisaForm = () => {
             <Input placeholder="Phone Number" />
 
             <Select placeholder="Select Service" options={servicesOptions} />
-            <Select placeholder="study Country" options={packageOptions} />
+            <Select placeholder="Study Country" options={packageOptions} />
 
-            <input
-              type="date"
-              className="w-full px-4 py-3 rounded-full border border-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            />
+            {/* Date Picker */}
+            <div className="w-full">
+              <DatePicker
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                customInput={<StyledDateInput />}
+                wrapperClassName="w-full block"
+                popperClassName="w-full"
+                dateFormat="dd/MM/yyyy"
+              />
+            </div>
 
             <Select placeholder="Area City" options={cityOptions} />
             <Select
@@ -90,7 +113,7 @@ const Select = ({ placeholder, options }) => (
     <select
       className="
         w-full px-4 py-3 pr-12
-        rounded-full border border-gray-400 bg-white
+        rounded-full text-gray-400 border border-gray-400 bg-white
         appearance-none
         focus:outline-none focus:ring-2 focus:ring-cyan-500
       "
@@ -109,5 +132,3 @@ const Select = ({ placeholder, options }) => (
     />
   </div>
 );
-
-

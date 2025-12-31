@@ -4,16 +4,18 @@ import { NavLink, Link, useLocation } from "react-router-dom";
 
 const services = [
   { name: "Haj & Umrah", path: "/umrah-service" },
-  { name: "Study Visa", path: "/ticketvisa" },
-  { name: "Ticket Booking", path: "/service-3" },
+  { name: "Study Visa", path: "/studyvisa" },
+  { name: "Ticket Booking", path: "/ticketvisa" },
 ];
-
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const servicesRef = useRef(null);
+
+  // Separate refs for desktop and mobile dropdowns
+  const desktopServicesRef = useRef(null);
+  const mobileServicesRef = useRef(null);
 
   const navLinkClass = ({ isActive }) =>
     `pb-1 transition-all duration-300 ${
@@ -22,38 +24,31 @@ const Navbar = () => {
         : "border-b-2 border-transparent hover:border-[#00CED1]"
     }`;
 
-  /* Close menus on route change */
+  // Close menus on route change
   useEffect(() => {
     setOpen(false);
     setServicesOpen(false);
   }, [location.pathname]);
 
-  /* Scroll effect */
+  // Scroll effect
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* Outside click close */
+  // Outside click for desktop services dropdown
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (servicesRef.current && !servicesRef.current.contains(e.target)) {
+      if (
+        desktopServicesRef.current &&
+        !desktopServicesRef.current.contains(e.target)
+      ) {
         setServicesOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  // Scroll effect for navbar background
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) setScrolled(true);
-      else setScrolled(false);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -235,7 +230,7 @@ const Navbar = () => {
         <div className="md:w-[90%] mx-auto px-4 md:px-10 py-3 flex justify-between items-center">
           {/* Logo */}
           <Link to="/">
-            <img src="/logo.png" alt="logo" className="w-32 md:w-48" />
+            <img src="/logo.png" alt="logo" className="w-32 md:w-48 md:ml-36" />
           </Link>
 
           {/* ================= DESKTOP ================= */}
@@ -248,8 +243,8 @@ const Navbar = () => {
               About Us
             </NavLink>
 
-            {/* SERVICES */}
-            <div className="relative" ref={servicesRef}>
+            {/* DESKTOP SERVICES */}
+            <div className="relative" ref={desktopServicesRef}>
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
                 className="flex items-center gap-1 pb-1 hover:text-[#00CED1]"
@@ -326,7 +321,7 @@ const Navbar = () => {
             </NavLink>
 
             {/* MOBILE SERVICES */}
-            <div className="relative" ref={servicesRef}>
+            <div className="relative" ref={mobileServicesRef}>
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
                 className="flex justify-between items-center w-full py-2 border-b border-white"

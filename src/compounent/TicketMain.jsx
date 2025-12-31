@@ -1,6 +1,6 @@
 import React from "react";
 
-const VisaMain = () => {
+const TicketMain = () => {
   return (
     <section className="w-full bg-[#F3F3F3]">
       <div className=" mx-auto">
@@ -19,13 +19,12 @@ const VisaMain = () => {
           {/* LEFT CONTENT */}
           <div className="max-w-md p-3 md:text-start text-center mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold leading-tight mt-3 text-[#000544]">
-              Study <span className="text-secondary"> Visa</span>
+              Ticket <span className="text-secondary"> Booking</span>
             </h2>
 
             <p className="mt-5 text-gray-600 leading-relaxed">
-              Expert guidance to help you secure your study visa with
-              confidence.A clear process, trusted support, and timely
-              assistance.
+              Fast and reliable ticket booking for domestic and international
+              travel.
             </p>
 
             <div className="flex justify-center md:justify-start items-center gap-4 mt-8">
@@ -81,7 +80,7 @@ const VisaMain = () => {
                   height="1"
                 >
                   <image
-                    href="/studyvisa.jpg"
+                    href="/ticket.jpg"
                     width="885"
                     height="926"
                     preserveAspectRatio="xMidYMid slice"
@@ -109,4 +108,4 @@ const VisaMain = () => {
   );
 };
 
-export default VisaMain;
+export default TicketMain;

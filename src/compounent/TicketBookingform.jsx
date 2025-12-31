@@ -8,7 +8,7 @@ const packageOptions = ["Basic Package", "Standard Package", "Premium Package"];
 const cityOptions = ["Karachi", "Lahore", "Islamabad", "Peshawar"];
 const countryOptions = ["Pakistan", "UAE", "UK", "Canada", "Australia"];
 
-const UmrahForm = () => {
+const TicketBookingform = () => {
   const [selectedDate, setSelectedDate] = useState(null);
 
   // Custom input for react-datepicker to show placeholder and style
@@ -59,7 +59,9 @@ const UmrahForm = () => {
             <Input placeholder="Phone Number" />
 
             <Select placeholder="Select Service" options={servicesOptions} />
-            <Select placeholder="Package Type" options={packageOptions} />
+            <Select placeholder="Travel Type" options={packageOptions} />
+            <Select placeholder="Departure City" options={packageOptions} />
+            <Select placeholder="Destination City" options={packageOptions} />
 
             {/* Date Picker */}
             <div className="w-full">
@@ -73,11 +75,7 @@ const UmrahForm = () => {
               />
             </div>
 
-            <Select placeholder="Area City" options={cityOptions} />
-            <Select
-              placeholder="Country of Resident"
-              options={countryOptions}
-            />
+            <Select placeholder="country of Resident" options={cityOptions} />
 
             <div className="text-xs text-cyan-600 space-y-1 pt-3">
               <p>We’ll contact you shortly after submission.</p>
@@ -96,7 +94,7 @@ const UmrahForm = () => {
   );
 };
 
-export default UmrahForm;
+export default TicketBookingform;
 
 /* ================= REUSABLE COMPONENTS ================= */
 

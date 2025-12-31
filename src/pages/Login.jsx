@@ -31,11 +31,9 @@ const Login = () => {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className=" rounded-t-[45px] bg-white md:rounded-r-[0px] md:rounded-l-[45px] p-10 text-[#007999] relative">
+        <div className=" rounded-t-[45px] flex flex-col justify-center bg-white md:rounded-r-[0px] md:rounded-l-[45px] p-10 text-[#007999] relative">
           {/* Language */}
-          <div className="absolute hidden top-6 right-6 text-sm cursor-pointer">
-            English ⌄
-          </div>
+          
 
           <h2 className="text-3xl font-bold mb-6 text-center capitalize">
             sign in to continue
@@ -75,7 +73,7 @@ const Login = () => {
             {/* Forgot Password */}
             <div className="text-right">
               <Link
-                to="/forgot-password"
+                to="/forgetpassword"
                 className="text-sm text-[#007999] hover:underline opacity-80 hover:opacity-100 transition"
               >
                 Forgot password?
