@@ -286,7 +286,7 @@ const Navbar = () => {
               Blogs
             </NavLink>
 
-            <NavLink to="/contact" className={navLinkClass}>
+            <NavLink to="/contactus" className={navLinkClass}>
               Contact Us
             </NavLink>
 
@@ -362,7 +362,7 @@ const Navbar = () => {
             <NavLink to="/blogs" className="block py-2 border-b border-white">
               Blogs
             </NavLink>
-            <NavLink to="/contact" className="block py-2 border-b border-white">
+            <NavLink to="/contactus" className="block py-2 border-b border-white">
               Contact Us
             </NavLink>
 

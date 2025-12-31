@@ -8,6 +8,7 @@ import UmrahServices from "./pages/UmrahServices";
 import Ticketvisa from "./pages/Ticketvisa";
 import Styduvisa from "./pages/Styduvisa";
 import Forgetpasswork from "./pages/Forgetpasswork";
+import Contactus from "./pages/Contactus";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/umrah-service" element={<UmrahServices />} />
           <Route path="/studyvisa" element={<Styduvisa />} />
           <Route path="/ticketvisa" element={<Ticketvisa />} />
+          <Route path="/contactus" element={<Contactus />} />
         </Routes>
       </BrowserRouter>
     </>
