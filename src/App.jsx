@@ -9,6 +9,7 @@ import Ticketvisa from "./pages/Ticketvisa";
 import Styduvisa from "./pages/Styduvisa";
 import Forgetpasswork from "./pages/Forgetpasswork";
 import Contactus from "./pages/Contactus";
+import Blog from "./pages/Blog";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/studyvisa" element={<Styduvisa />} />
           <Route path="/ticketvisa" element={<Ticketvisa />} />
           <Route path="/contactus" element={<Contactus />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
       </BrowserRouter>
     </>

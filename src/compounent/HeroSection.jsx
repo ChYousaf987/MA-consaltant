@@ -10,6 +10,7 @@ const services = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [servicesOpens, setServicesOpens] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
@@ -323,20 +324,20 @@ const Navbar = () => {
             {/* MOBILE SERVICES */}
             <div className="relative" ref={mobileServicesRef}>
               <button
-                onClick={() => setServicesOpen(!servicesOpen)}
+                onClick={() => setServicesOpens(!servicesOpens)}
                 className="flex justify-between items-center w-full py-2 border-b border-white"
               >
                 Services
                 <HiChevronDown
                   className={`transition-transform ${
-                    servicesOpen ? "rotate-180" : ""
+                    servicesOpens ? "rotate-180" : ""
                   }`}
                 />
               </button>
 
               <div
                 className={`flex flex-col pl-4 mt-2 bg-[#00485c] rounded-lg overflow-hidden transition-all duration-300 ${
-                  servicesOpen
+                  servicesOpens
                     ? "max-h-[500px] opacity-100"
                     : "max-h-0 opacity-0"
                 }`}
