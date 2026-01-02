@@ -25,7 +25,7 @@ const App = () => {
           <Route path="/studyvisa" element={<Styduvisa />} />
           <Route path="/ticketvisa" element={<Ticketvisa />} />
           <Route path="/contactus" element={<Contactus />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/blogs" element={<Blog />} />
         </Routes>
       </BrowserRouter>
     </>
